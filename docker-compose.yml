@@ -1,0 +1,105 @@
+# version: '3.8'
+# services:
+#   backend:
+#     build: .
+#     ports:
+#       - "4000:4000"
+#     environment:
+#       - DB_NAME=${DB_NAME}
+#       - DB_USER=${DB_USER}
+#       - DB_PASS=${DB_PASS}
+#       - DB_HOST=db
+#     depends_on:
+#       - db
+
+#   db:
+#     image: postgres:latest
+#     environment:
+#       POSTGRES_USER: admin
+#       POSTGRES_PASSWORD: password
+#       POSTGRES_DB: employees
+#     ports:
+#       - "5432:5432"
+#     volumes:
+#       - db_data:/var/lib/postgresql/data
+
+# volumes:
+#   db_data:
+
+
+# version: '3.8'
+# services:
+#   backend:
+#     build: .
+#     ports:
+#       - "4000:4000"
+#     environment:
+#       POSTGRES_USER: postgres
+#       POSTGRES_PASSWORD: users12345
+#       POSTGRES_DB: testdb
+#       # DB_HOST=db
+
+#       # - DB_NAME=${DB_NAME}
+#       # - DB_USER=${DB_USER}
+#       # - DB_PASS=${DB_PASS}
+#       # - DB_HOST=db
+#     depends_on:
+#       - db
+#     networks:
+#       - my-network
+
+#   db:
+#     image: postgres:latest
+#     environment:
+#       POSTGRES_USER: admin
+#       POSTGRES_PASSWORD: password
+#       POSTGRES_DB: employees
+#     ports:
+#       - "5432:5432"
+#     volumes:
+#       - db_data:/var/lib/postgresql/data
+#     networks:
+#       - my-network
+
+# volumes:
+#   db_data:
+
+# networks:
+#   my-network:
+
+
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    ports:
+      - "4000:4000"
+    environment:
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+      DB_HOST: db
+    depends_on:
+      - db
+    networks:
+      - my-network
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - my-network
+
+volumes:
+  db_data:
+
+networks:
+  my-network:
