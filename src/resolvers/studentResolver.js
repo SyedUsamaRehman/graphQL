@@ -2,32 +2,6 @@
 const Student = require('../models/student');
 const { isAdmin } = require('../middleware/authMiddleware');
 
-// const studentResolver = {
-//   Query: {
-//     students: async (_, { page = 1, size = 10 }, context) => {
-//       const offset = (page - 1) * size;
-//       return await Student.findAll({ limit: size, offset });
-//     },
-//     student: (_, { id }) => Student.findByPk(id),
-//   },
-//   Mutation: {
-//     addStudent: isAdmin(async (_, { name, age, class: className }) => {
-//       return Student.create({ name, age, class: className });
-//     }),
-//     updateStudent: isAdmin(async (_, { id, ...data }) => {
-//       await Student.update(data, { where: { id } });
-//       return Student.findByPk(id);
-//     }),
-//   },
-// };
-
-// module.exports = studentResolver;
-
-
-
-
-
-
 
 const studentResolver = {
   Query: {

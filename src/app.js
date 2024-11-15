@@ -42,23 +42,14 @@ const cors = require('cors'); // Allow cross-origin requests
 
   await server.start();
 
-  // Set up authentication context and apply Apollo Server as middleware
-  // app.use('/graphql', expressMiddleware(server, {
-  //   context: async ({ req }) => {
-  //     await new Promise((resolve, reject) => {
-  //       authMiddleware(resolve, null, null, { req }, null);
-  //     });
-  //     return { user: req.user };
-  //   }
-  // }));
-
+  
 
 
   app.use('/graphql', expressMiddleware(server, {
-    // context: ({ req }) => {
-    //   const user = authMiddleware(req);
-    //   return { user };
-    // }
+    context: ({ req }) => {
+      const user = authMiddleware(req);
+      return { user };
+    }
   }));
 
 

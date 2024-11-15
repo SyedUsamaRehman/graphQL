@@ -1,33 +1,4 @@
 // // resolvers/userResolver.js
-// const { hashPassword, validatePassword, generateToken } = require('../utils/auth');
-// const User = require('../models/user');
-
-// const userResolver = {
-//   Mutation: {
-//     register: async (_, { username, password, role }) => {
-//       const hashedPassword = await hashPassword(password);
-//       const user = await User.create({ username, password: hashedPassword, role });
-//       return { token: generateToken(user) };
-//     },
-//     login: async (_, { username, password }) => {
-//       const user = await User.findOne({ where: { username } });
-//       if (!user || !(await validatePassword(password, user.password))) {
-//         throw new Error('Invalid credentials');
-//       }
-//       return { token: generateToken(user) };
-//     },
-//   },
-// };
-
-// module.exports = userResolver;
-
-
-
-
-
-
-
-
 const { hashPassword, validatePassword, generateToken } = require('../utils/auth');
 const User = require('../models/user');
 

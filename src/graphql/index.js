@@ -8,11 +8,9 @@ const userSchema = require('../schema/userSchems');
 
 
 
-// const resolvers =mergeResolvers([userResolver,employeeResolver,studentResolver]);
-const resolvers =mergeResolvers([userResolver]);
-const typeDefs = mergeTypeDefs([userSchema]);
+const resolvers =mergeResolvers([userResolver,employeeResolver,studentResolver]);
 
-// const typeDefs = mergeTypeDefs([userSchema,employeeSchema,studentSchema]);
+const typeDefs = mergeTypeDefs([userSchema,employeeSchema,studentSchema]);
 
 
 module.exports = {typeDefs,resolvers};

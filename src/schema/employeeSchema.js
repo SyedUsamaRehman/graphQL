@@ -1,5 +1,4 @@
 const { gql } = require('graphql-tag'); // Use graphql-tag for the gql tag
-const { GraphQLJSON } = require('graphql-type-json'); // Import GraphQLJSON from graphql-type-json
 
 const employeeSchema = gql`
   scalar JSON
